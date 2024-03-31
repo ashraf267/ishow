@@ -49,10 +49,10 @@ class UserTypeScr extends StatelessWidget {
           ),
 
           // button 1
-          Container(
-            margin: const EdgeInsets.all(15),
-            child: Expanded(
-              flex: 1,
+          Expanded(
+            flex: 1,
+            child: Container(
+              margin: const EdgeInsets.all(15),
               child: MaterialButton(
                 padding: const EdgeInsets.all(20),
                 shape: RoundedRectangleBorder(
@@ -72,10 +72,10 @@ class UserTypeScr extends StatelessWidget {
           ),
 
           // button 2
-          Container(
-            margin: const EdgeInsets.all(15),
-            child: Expanded(
-              flex: 1,
+          Expanded(
+            flex: 1,
+            child: Container(
+              margin: const EdgeInsets.all(15),
               child: MaterialButton(
                 padding: const EdgeInsets.all(20),
                 shape: RoundedRectangleBorder(
