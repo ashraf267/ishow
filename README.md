@@ -21,7 +21,7 @@ List of tasks for my ishow project:
 
 Status: nd:- not done, d:- done
 
-- design the type of user screen (status: nd)
+- design the type of user screen (status: d)
 - design the login screen (status: nd)
 - design the register screen (status: nd)
 - update flutter icon to ishow app icon (status: nd)

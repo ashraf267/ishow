@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-// TODO: add a title property
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -31,9 +29,8 @@ class UserTypeScr extends StatelessWidget {
       backgroundColor: Colors.black,
       body: Column(
         children: [
-          // TODO: add logo: wordmark+icon
           Expanded(
-            flex: 3,
+            flex: 6,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -61,7 +58,7 @@ class UserTypeScr extends StatelessWidget {
           Expanded(
             flex: 1,
             child: Container(
-              margin: const EdgeInsets.all(15),
+              margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 35),
               child: MaterialButton(
                 padding: const EdgeInsets.all(20),
                 shape: RoundedRectangleBorder(
@@ -70,11 +67,25 @@ class UserTypeScr extends StatelessWidget {
                 minWidth: double.infinity,
                 color: Colors.green,
                 onPressed: () {},
-                child: const Text(
-                  'OLD USER',
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'OLD USER',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white,
+                        fontSize: 16,
+                      ),
+                    ),
+
+                    // icon
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      size: 25,
+                      color: Colors.white,
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -84,7 +95,7 @@ class UserTypeScr extends StatelessWidget {
           Expanded(
             flex: 1,
             child: Container(
-              margin: const EdgeInsets.all(15),
+              margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 35),
               child: MaterialButton(
                 padding: const EdgeInsets.all(20),
                 shape: RoundedRectangleBorder(
@@ -93,11 +104,25 @@ class UserTypeScr extends StatelessWidget {
                 color: Colors.green,
                 minWidth: double.infinity,
                 onPressed: () {},
-                child: const Text(
-                  'NEW USER',
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'NEW USER',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16,
+                        color: Colors.white,
+                      ),
+                    ),
+
+                    // icon
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      color: Colors.white,
+                      size: 25,
+                    ),
+                  ],
                 ),
               ),
             ),
