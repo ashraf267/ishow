@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,20 +32,27 @@ class UserTypeScr extends StatelessWidget {
       body: Column(
         children: [
           // TODO: add logo: wordmark+icon
-          const Expanded(
+          Expanded(
             flex: 3,
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // wordmark
+                // text
                 Text(
                   'Ishow',
-                  style: TextStyle(
-                    color: Colors.white,
-                    // TODO: set font weight to bold
+                  style: GoogleFonts.ubuntu(
+                    fontSize: 48,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.green[50],
                   ),
                 ),
 
                 // icon
+                const Icon(
+                  Icons.recommend,
+                  size: 55,
+                  color: Colors.green,
+                ),
               ],
             ),
           ),
