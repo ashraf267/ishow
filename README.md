@@ -25,3 +25,5 @@ Status: nd:- not done, d:- done
 - design the login screen (status: nd)
 - design the register screen (status: nd)
 - update flutter icon to ishow app icon (status: nd)
+- add password visibility toggle button for login & register (status: nd)
+- add a no internet connection red buttom button if no internet detected at login & register (status: nd)
