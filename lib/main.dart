@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -13,7 +14,8 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       // home: UserTypeScr(),
-      home: UserRegisterScr(),
+      // home: UserRegisterScr(),
+      home: UserLoginScr(),
     );
   }
 }
@@ -190,7 +192,7 @@ class _UserRegisterScrState extends State<UserRegisterScr> {
                 child: CustomLabelTextField(
                   textController: fnameController,
                   labelText: 'Your Firstname',
-                  hint: 'Ayo',
+                  hint: 'firstname',
                   keyboardType: TextInputType.name,
                   hideText: false,
                   onChanged: myOnChanged,
@@ -203,7 +205,7 @@ class _UserRegisterScrState extends State<UserRegisterScr> {
                 child: CustomLabelTextField(
                   textController: lnameController,
                   labelText: 'Your Lastname',
-                  hint: 'Deji',
+                  hint: 'lastname',
                   keyboardType: TextInputType.name,
                   hideText: false,
                   onChanged: myOnChanged,
@@ -216,7 +218,7 @@ class _UserRegisterScrState extends State<UserRegisterScr> {
                 child: CustomLabelTextField(
                   textController: emailController,
                   labelText: 'Your Email',
-                  hint: 'aybobo456@email.com',
+                  hint: 'email',
                   keyboardType: TextInputType.emailAddress,
                   hideText: false,
                   onChanged: myOnChanged,
@@ -229,7 +231,7 @@ class _UserRegisterScrState extends State<UserRegisterScr> {
                 child: CustomLabelTextField(
                   textController: pswController,
                   labelText: 'Your Password',
-                  hint: 'dghryt#675',
+                  hint: 'password',
                   keyboardType: TextInputType.text,
                   hideText: true,
                   onChanged: myOnChanged,
@@ -383,6 +385,7 @@ class _CustomLabelTextFieldState extends State<CustomLabelTextField> {
           controller: widget.textController,
           style: const TextStyle(
             color: Colors.white,
+            decorationColor: Colors.white,
           ),
           cursorColor: Colors.green,
           decoration: InputDecoration(
@@ -397,6 +400,9 @@ class _CustomLabelTextFieldState extends State<CustomLabelTextField> {
             fillColor: Colors.grey[850],
           ),
           onChanged: widget.onChanged,
+          onTapOutside: (event) {
+            FocusScope.of(context).unfocus();
+          },
         ),
       ],
     );
@@ -428,6 +434,100 @@ class _CustomSliderState extends State<CustomSlider> {
           _currentSliderValue = value;
         });
       },
+    );
+  }
+}
+
+class UserLoginScr extends StatefulWidget {
+  const UserLoginScr({super.key});
+
+  @override
+  State<UserLoginScr> createState() => _UserLoginScrState();
+}
+
+class _UserLoginScrState extends State<UserLoginScr> {
+  final loginEmailController = TextEditingController();
+
+  void onChanged(String nText) {
+    setState(() {
+      // rebuild ui
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        title: Text(
+          'Login',
+          style: GoogleFonts.ubuntu(
+            color: Colors.white,
+          ),
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.transparent,
+        leading: const Icon(
+          Icons.arrow_back_ios,
+          color: Colors.white,
+        ),
+      ),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+          child: Column(
+            children: [
+              // field 1
+              Padding(
+                padding: const EdgeInsets.only(top: 5, bottom: 15),
+                child: CustomLabelTextField(
+                    textController: loginEmailController,
+                    labelText: 'Your Email',
+                    hint: 'email',
+                    keyboardType: TextInputType.emailAddress,
+                    hideText: false,
+                    onChanged: onChanged),
+              ),
+
+              // button 1
+              MaterialButton(
+                onPressed: () {},
+                color: Colors.transparent,
+                minWidth: double.infinity,
+                padding: const EdgeInsets.all(15),
+                child: Text(
+                  'Forgot Password?',
+                  style: GoogleFonts.ubuntu(
+                    color: Colors.white,
+                    fontSize: 15,
+                  ),
+                ),
+              ),
+
+              // button 2
+              MaterialButton(
+                onPressed: () {},
+                color: Colors.green,
+                disabledColor: Colors.green[300],
+                disabledTextColor: Colors.green[50],
+                minWidth: double.infinity,
+                padding: const EdgeInsets.all(15),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                child: Text(
+                  'NEXT',
+                  style: GoogleFonts.ubuntu(
+                    color: Colors.white,
+                    fontSize: 17,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

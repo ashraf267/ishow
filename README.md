@@ -22,8 +22,9 @@ List of tasks for my ishow project:
 Status: nd:- not done, d:- done
 
 - design the type of user screen (status: d)
-- design the login screen (status: nd)
-- design the register screen (status: nd)
+- design the login screen (status: d)
+- design the register screen (status: d)
+- fix the nav for the 2 btns (new & existing user) in the user screen (status: nd)
 - update flutter icon to ishow app icon (status: nd)
 - add password visibility toggle button for login & register (status: nd)
 - add a no internet connection red buttom button if no internet detected at login & register (status: nd)
