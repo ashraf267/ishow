@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -13,9 +12,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      // home: UserTypeScr(),
+      home: UserTypeScr(),
       // home: UserRegisterScr(),
-      home: UserLoginScr(),
+      // home: UserLoginScr(),
     );
   }
 }
@@ -70,7 +69,13 @@ class UserTypeScr extends StatelessWidget {
                 ),
                 minWidth: double.infinity,
                 color: Colors.green,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const UserLoginScr()),
+                  );
+                },
                 child: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -107,7 +112,13 @@ class UserTypeScr extends StatelessWidget {
                 ),
                 color: Colors.green,
                 minWidth: double.infinity,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const UserRegisterScr()),
+                  );
+                },
                 child: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -175,9 +186,14 @@ class _UserRegisterScrState extends State<UserRegisterScr> {
         ),
         backgroundColor: Colors.transparent,
         centerTitle: true,
-        leading: const Icon(
-          Icons.arrow_back_ios,
-          color: Colors.white,
+        leading: IconButton(
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            color: Colors.white,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
       ),
       backgroundColor: Colors.black,
@@ -467,9 +483,14 @@ class _UserLoginScrState extends State<UserLoginScr> {
         ),
         centerTitle: true,
         backgroundColor: Colors.transparent,
-        leading: const Icon(
-          Icons.arrow_back_ios,
-          color: Colors.white,
+        leading: IconButton(
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            color: Colors.white,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
       ),
       body: Center(
@@ -502,6 +523,10 @@ class _UserLoginScrState extends State<UserLoginScr> {
                     fontSize: 15,
                   ),
                 ),
+              ),
+
+              const SizedBox(
+                height: 15,
               ),
 
               // button 2
