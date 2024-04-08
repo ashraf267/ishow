@@ -12,9 +12,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: UserTypeScr(),
+      // home: UserTypeScr(),
       // home: UserRegisterScr(),
       // home: UserLoginScr(),
+      home: HomeScr(),
     );
   }
 }
@@ -476,7 +477,7 @@ class _UserLoginScrState extends State<UserLoginScr> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         title: Text(
-          'Login',
+          'wole',
           style: GoogleFonts.ubuntu(
             color: Colors.white,
           ),
@@ -551,6 +552,259 @@ class _UserLoginScrState extends State<UserLoginScr> {
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+// HomeScr- main home screen upon successful login or new user reg
+class HomeScr extends StatefulWidget {
+  const HomeScr({super.key});
+
+  @override
+  State<HomeScr> createState() => _HomeScrState();
+}
+
+class _HomeScrState extends State<HomeScr> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        title: Row(
+          children: [
+            // home icon
+            Icon(
+              Icons.home,
+              color: Colors.green[100],
+            ),
+
+            // text
+            Text(
+              'Home',
+              style: GoogleFonts.ubuntu(
+                color: Colors.green[100],
+              ),
+            ),
+          ],
+        ),
+        leading: IconButton(
+          onPressed: () {
+            // open side menu
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const HomeSideMenu(),
+              ),
+            );
+          },
+          icon: const Icon(
+            Icons.menu,
+            color: Colors.white,
+          ),
+        ),
+        actions: [
+          IconButton(
+            onPressed: () {},
+            icon: Icon(
+              Icons.wifi_off,
+              color: Colors.grey[700],
+            ),
+          ),
+        ],
+      ),
+      body: Column(
+        children: [
+          Text(
+            DateTime.now().toString(),
+            style: GoogleFonts.ubuntu(
+              color: Colors.white,
+            ),
+          ),
+
+          const Text(
+            'Hello, Ashraf!',
+            style: TextStyle(
+              fontSize: 35,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class HomeSideMenu extends StatelessWidget {
+  const HomeSideMenu({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        leading: IconButton(
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            color: Colors.white,
+          ),
+          onPressed: () {
+            // close side menu
+            Navigator.pop(context);
+          },
+        ),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+        child: Column(
+          children: [
+            Expanded(
+              flex: 3,
+              child: Row(
+                children: [
+                  // rounded-border text
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 30),
+                    decoration: BoxDecoration(
+                      color: Colors.grey[850],
+                      shape: BoxShape.circle,
+                    ),
+                    child: Text(
+                      'A',
+                      style: GoogleFonts.ubuntu(
+                        color: Colors.green[100],
+                        fontSize: 70,
+                        fontWeight: FontWeight.w700,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+
+                  const SizedBox(
+                    width: 20,
+                  ),
+
+                  // text
+                  Text(
+                    'Ashraf Otagun',
+                    style: GoogleFonts.ubuntu(
+                      color: Colors.white,
+                      fontSize: 17,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            // flat btns
+            // btn 1
+            const ExpCardFlatBtn(text: 'Settings', icon: Icons.manage_accounts),
+            Divider(color: Colors.grey[850]),
+
+            // btn 2
+            const ExpCardFlatBtn(
+              text: 'Fingerprints',
+              icon: Icons.fingerprint,
+            ),
+            Divider(color: Colors.grey[850]),
+
+            // btn 3
+            const ExpCardFlatBtn(
+              text: 'History',
+              icon: Icons.history,
+            ),
+            Divider(color: Colors.grey[850]),
+
+            // btn 4
+            const ExpCardFlatBtn(
+              text: 'Help',
+              icon: Icons.help,
+            ),
+            Divider(color: Colors.grey[850]),
+
+            // btn 5
+            const ExpCardFlatBtn(
+              text: 'Logout',
+              icon: Icons.logout,
+              iconColor: Colors.red,
+            ),
+            Divider(color: Colors.grey[850]),
+
+            // app version
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 5),
+              child: Text(
+                'v1.0.0',
+                style: TextStyle(
+                  color: Colors.grey[700],
+                  fontSize: 14,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class ExpCardFlatBtn extends StatelessWidget {
+  const ExpCardFlatBtn({
+    super.key,
+    required this.text,
+    required this.icon,
+    this.iconColor = Colors.green,
+  });
+
+  final String text;
+  final IconData? icon;
+  final Color? iconColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      flex: 1,
+      child: GestureDetector(
+        onTap: () {
+          // mooooovvveee
+          print('hello');
+        },
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                // icon 1
+                Icon(
+                  icon,
+                  color: iconColor,
+                  size: 27,
+                ),
+
+                const SizedBox(width: 10),
+
+                // text
+                Text(
+                  text,
+                  style: GoogleFonts.ubuntu(
+                    color: Colors.white,
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            ),
+
+            // arrow-forward icon
+            const Icon(
+              Icons.arrow_forward_ios,
+              color: Colors.white,
+              size: 15,
+            ),
+          ],
         ),
       ),
     );
