@@ -477,7 +477,7 @@ class _UserLoginScrState extends State<UserLoginScr> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         title: Text(
-          'wole',
+          'Login',
           style: GoogleFonts.ubuntu(
             color: Colors.white,
           ),
@@ -575,15 +575,15 @@ class _HomeScrState extends State<HomeScr> {
         backgroundColor: Colors.transparent,
         title: Row(
           children: [
-            // home icon
-            Icon(
-              Icons.home,
-              color: Colors.green[100],
-            ),
+            // // home icon
+            // Icon(
+            //   Icons.home,
+            //   color: Colors.green[100],
+            // ),
 
             // text
             Text(
-              'Home',
+              'Ishow',
               style: GoogleFonts.ubuntu(
                 color: Colors.green[100],
               ),
@@ -615,29 +615,83 @@ class _HomeScrState extends State<HomeScr> {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          Text(
-            DateTime.now().toString(),
-            style: GoogleFonts.ubuntu(
-              color: Colors.white,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              // DateTime.now().toString(),
+              formatDate(),
+              style: GoogleFonts.ubuntu(
+                color: Colors.white,
+              ),
             ),
-          ),
 
-          const Text(
-            'Hello, Ashraf!',
-            style: TextStyle(
-              fontSize: 35,
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
+            const Text(
+              'Hello, Ashraf!',
+              style: TextStyle(
+                fontSize: 35,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
             ),
-          ),
-        ],
+            const SizedBox(height: 40),
+            // no of courses (/attendance) added
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 30),
+              decoration: BoxDecoration(
+                color: Colors.grey[900],
+                borderRadius: BorderRadius.circular(5),
+                boxShadow: const [
+                  BoxShadow(
+                    color: Colors.white12,
+                    blurRadius: 20,
+                    spreadRadius: 1,
+                    offset: Offset(5, 5),
+                  ),
+                ],
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // no
+                  Text(
+                    '5',
+                    style: GoogleFonts.ubuntu(
+                      color: Colors.white,
+                      fontSize: 85,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+
+                  // label
+                  Text(
+                    'COURSES',
+                    style: TextStyle(
+                      color: Colors.grey[700],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.green,
+        onPressed: () {},
+        child: const Icon(
+          Icons.add_task,
+          color: Colors.white,
+          size: 30,
+        ),
       ),
     );
   }
 }
 
+// this guy could be replaced with a Drawer widget in Scaffold. Fix later!
 class HomeSideMenu extends StatelessWidget {
   const HomeSideMenu({super.key});
 
@@ -809,4 +863,83 @@ class ExpCardFlatBtn extends StatelessWidget {
       ),
     );
   }
+}
+
+// format my date
+// return a custom date formatted string
+String formatDate() {
+  // dt obj
+  DateTime dtObj = DateTime.now();
+
+  String getDay;
+  String getMonth;
+  String dt = dtObj.day.toString();
+  String yr = dtObj.year.toString();
+
+  // get day
+  switch (dtObj.weekday) {
+    case 1:
+      getDay = "Monday";
+      break;
+    case 2:
+      getDay = "Tuesday";
+      break;
+    case 3:
+      getDay = "Wednesday";
+      break;
+    case 4:
+      getDay = "Thursday";
+      break;
+    case 5:
+      getDay = "Friday";
+      break;
+    case 6:
+      getDay = "Saturday";
+      break;
+    default:
+      getDay = "Sunday";
+      break;
+  }
+
+  // get month
+  switch (dtObj.month) {
+    case 1:
+      getMonth = "Jan";
+      break;
+    case 2:
+      getMonth = "Feb";
+      break;
+    case 3:
+      getMonth = "Mar";
+      break;
+    case 4:
+      getMonth = "Apr";
+      break;
+    case 5:
+      getMonth = "May";
+      break;
+    case 6:
+      getMonth = "Jun";
+      break;
+    case 7:
+      getMonth = "Jul";
+      break;
+    case 8:
+      getMonth = "Aug";
+      break;
+    case 9:
+      getMonth = "Sep";
+      break;
+    case 10:
+      getMonth = "Oct";
+      break;
+    case 11:
+      getMonth = "Nov";
+      break;
+    default:
+      getMonth = "Dec";
+      break;
+  }
+
+  return '$getDay, $getMonth $dt $yr';
 }
