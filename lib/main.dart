@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp(const MyApp());
 }
 
@@ -573,22 +580,11 @@ class _HomeScrState extends State<HomeScr> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        title: Row(
-          children: [
-            // // home icon
-            // Icon(
-            //   Icons.home,
-            //   color: Colors.green[100],
-            // ),
-
-            // text
-            Text(
-              'Ishow',
-              style: GoogleFonts.ubuntu(
-                color: Colors.green[100],
-              ),
-            ),
-          ],
+        title: Text(
+          'Ishow',
+          style: GoogleFonts.ubuntu(
+            color: Colors.green[100],
+          ),
         ),
         leading: IconButton(
           onPressed: () {
@@ -627,7 +623,7 @@ class _HomeScrState extends State<HomeScr> {
                 color: Colors.white,
               ),
             ),
-
+      
             const Text(
               'Hello, Ashraf!',
               style: TextStyle(
@@ -664,7 +660,7 @@ class _HomeScrState extends State<HomeScr> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-
+      
                   // label
                   Text(
                     'COURSES',

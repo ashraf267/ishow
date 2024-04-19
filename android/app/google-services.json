@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "867718839176",
+    "project_id": "ishow-e8d16",
+    "storage_bucket": "ishow-e8d16.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:867718839176:android:55b0c8d35ead9091d2d83d",
+        "android_client_info": {
+          "package_name": "com.example.ishow"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCk0MXK8goVHyGap-ujYzGl7bdJQAVTBTM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
